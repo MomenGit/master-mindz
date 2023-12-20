@@ -1,11 +1,7 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import '@fontsource/roboto/300.css';
-import '@fontsource/roboto/400.css';
-import '@fontsource/roboto/500.css';
-import '@fontsource/roboto/700.css';
-
-const inter = Inter({ subsets: ['latin'] });
+import { ThemeProvider } from '@mui/material';
+import theme from '@/utils/theme';
+import './globals.css';
 
 export const metadata: Metadata = {
   title: {
@@ -26,7 +22,9 @@ export default function RootLayout({
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
-      <body className={inter.className}>{children}</body>
+      <body>
+        <ThemeProvider theme={theme}>{children}</ThemeProvider>
+      </body>
     </html>
   );
 }
